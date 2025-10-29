@@ -287,7 +287,7 @@ Example composer.json snippet:
 | **WET (selective)** | Explicit interfaces for clarity                 | Slight duplication for readability |
 
 
-📖 Full details in [DESIGN_DOC.md](DESIGN_DOC.md)
+📖 Full details in [Design_Doc.md](Design_Doc.md)
 
 
 ## 🧰 Development Tools
