@@ -10,4 +10,4 @@ Artisan::command('inspire', function () {
 
 // Schedule the daily report at 23:59
 // Schedule::job(new DailySalesReportJob)->dailyAt('23:59');
-Schedule::job(new DailySalesReportJob())->everyMinute();
+Schedule::job(new DailySalesReportJob)->everyMinute();
