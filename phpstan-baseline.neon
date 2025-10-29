@@ -1,0 +1,229 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$user of class Illuminate\\Auth\\Events\\Verified constructor expects Illuminate\\Contracts\\Auth\\MustVerifyEmail, App\\Models\\User\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/Auth/VerifyEmailController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:destroy\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:destroy\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:index\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:store\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\CartController\:\:update\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Http/Controllers/CartController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\OrderController\:\:store\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/OrderController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\ProductController\:\:index\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Http/Controllers/ProductController.php
+
+		-
+			message: '#^Relation ''product'' is not found in App\\Models\\OrderItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Jobs/DailySalesReportJob.php
+
+		-
+			message: '#^Method App\\Mail\\DailySalesReportMail\:\:__construct\(\) has parameter \$summary with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Mail/DailySalesReportMail.php
+
+		-
+			message: '#^Method App\\Mail\\DailySalesReportMail\:\:build\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Mail/DailySalesReportMail.php
+
+		-
+			message: '#^Class App\\Models\\CartItem uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/CartItem.php
+
+		-
+			message: '#^Method App\\Models\\CartItem\:\:product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Models/CartItem.php
+
+		-
+			message: '#^Class App\\Models\\Order uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/Order.php
+
+		-
+			message: '#^Method App\\Models\\Order\:\:items\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Models/Order.php
+
+		-
+			message: '#^Class App\\Models\\OrderItem uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/OrderItem.php
+
+		-
+			message: '#^Method App\\Models\\OrderItem\:\:product\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Models/OrderItem.php
+
+		-
+			message: '#^Class App\\Models\\Product uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/Product.php
+
+		-
+			message: '#^Method App\\Notifications\\LowStockNotification\:\:toMail\(\) has parameter \$notifiable with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Notifications/LowStockNotification.php
+
+		-
+			message: '#^Method App\\Notifications\\LowStockNotification\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: app/Notifications/LowStockNotification.php
+
+		-
+			message: '#^Method App\\Notifications\\LowStockNotification\:\:via\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Notifications/LowStockNotification.php
+
+		-
+			message: '#^Method App\\Repositories\\Eloquent\\CartRepository\:\:all\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Repositories/Eloquent/CartRepository.php
+
+		-
+			message: '#^Relation ''product'' is not found in App\\Models\\CartItem model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Repositories/Eloquent/CartRepository.php
+
+		-
+			message: '#^Method App\\Repositories\\Eloquent\\OrderRepository\:\:create\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Repositories/Eloquent/OrderRepository.php
+
+		-
+			message: '#^Method App\\Repositories\\Eloquent\\ProductRepository\:\:all\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Repositories/Eloquent/ProductRepository.php
+
+		-
+			message: '#^Method App\\Repositories\\Interfaces\\CartRepositoryInterface\:\:all\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Repositories/Interfaces/CartRepositoryInterface.php
+
+		-
+			message: '#^Method App\\Repositories\\Interfaces\\OrderRepositoryInterface\:\:create\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Repositories/Interfaces/OrderRepositoryInterface.php
+
+		-
+			message: '#^Method App\\Repositories\\Interfaces\\ProductRepositoryInterface\:\:all\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Repositories/Interfaces/ProductRepositoryInterface.php
+
+		-
+			message: '#^Method App\\Services\\CartService\:\:add\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/CartService.php
+
+		-
+			message: '#^Method App\\Services\\CartService\:\:clear\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/CartService.php
+
+		-
+			message: '#^Method App\\Services\\CartService\:\:getAll\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/CartService.php
+
+		-
+			message: '#^Method App\\Services\\CartService\:\:remove\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/CartService.php
+
+		-
+			message: '#^Method App\\Services\\CartService\:\:update\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/CartService.php
+
+		-
+			message: '#^Method App\\Services\\OrderService\:\:checkout\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/OrderService.php
+
+		-
+			message: '#^Method App\\Services\\ProductService\:\:getAll\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Services/ProductService.php
+
+		-
+			message: '#^Return type \(array\<string, mixed\>\) of method Database\\Factories\\ProductFactory\:\:definition\(\) should be compatible with return type \(array\<model property of App\\Models\\Product, mixed\>\) of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\Product\>\:\:definition\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: database/factories/ProductFactory.php
+
+		-
+			message: '#^Return type \(array\<string, mixed\>\) of method Database\\Factories\\UserFactory\:\:definition\(\) should be compatible with return type \(array\<model property of App\\Models\\User, mixed\>\) of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\User\>\:\:definition\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: database/factories/UserFactory.php
