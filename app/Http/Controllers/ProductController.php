@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function index(): Response
     {
         $products = $this->productService->getAll();
+
         return Inertia::render('Products/Index', ['products' => $products]);
     }
 }

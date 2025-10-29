@@ -8,7 +8,7 @@ use App\Repositories\Interfaces\OrderRepositoryInterface;
 class OrderRepository implements OrderRepositoryInterface
 {
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function create(array $data): Order
     {
