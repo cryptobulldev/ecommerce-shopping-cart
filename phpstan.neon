@@ -1,0 +1,41 @@
+includes:
+  - vendor/larastan/larastan/extension.neon
+
+parameters:
+  paths:
+    - app
+    - database
+
+  level: 7
+
+  excludePaths:
+    - bootstrap
+    - app/Models
+    - storage
+    - vendor
+    - tests
+
+  reportUnmatchedIgnoredErrors: false
+
+  parallel:
+    maximumNumberOfProcesses: 4
+
+  checkModelProperties: true
+  checkOctaneCompatibility: false
+
+  scanFiles:
+    - bootstrap/app.php
+
+  ignoreErrors:
+    - '#Access to an undefined property .*#'
+    - '#Call to static method .* on an unknown class .*#'
+    - '#Function (view|route|config|trans|app) not found#'
+    - '#Unsafe usage of new static\(\)#'
+    - '#Property [A-Za-z0-9_\\]+ does not exist#'
+    - '#uses generic trait Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\HasFactory but does not specify its types#'
+    - '#Method App\\\\Models\\\\CartItem::product\(\) should return#'
+    - '#Method App\\\\Models\\\\OrderItem::product\(\) should return#'
+    - '#Method App\\\\Models\\\\Order::items\(\) should return#'
+
+  bootstrapFiles:
+    - vendor/autoload.php
