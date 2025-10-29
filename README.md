@@ -1,59 +1,331 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Laravel 11 + Inertia.js + React – E-Commerce Cart Demo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a **simple, modular e-commerce shopping cart system** built with **Laravel 11**, **Inertia.js**, and **React**.
 
-## About Laravel
+It demonstrates how to design a clean backend using modern architectural principles — applying **SOLID**, **DRY**, and **KISS** patterns — while keeping code readable, testable, and easy to extend.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🧱 **Clean Architecture (Repository + Service + Controller)**
+- 🛍️ **Cart System** – browse, add, update, and remove products
+- ⚡ **Low-Stock Notification** – background job triggered when stock runs low
+- 📊 **Daily Sales Report** – scheduled cron job that emails a summary
+- 🎨 **Frontend:** Inertia.js + React + Tailwind CSS
+- 🧰 **Developer Tooling:** Laravel Pint + PHPStan (Larastan)
+- 📨 **Notifications & Queues:** fully asynchronous job dispatching
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🏗️ Project Structure
 
-## Laravel Sponsors
+```
+ecommerce-cart/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   ├── CartController.php
+│   │   │   ├── OrderController.php
+│   │   │   ├── ProductController.php
+│   │   │   ├── ProfileController.php
+│   │   │   └── Controller.php
+│   │   ├── Middleware/
+│   │   │   └── HandleInertiaRequests.php
+│   │   └── Requests/
+│   │       ├── Auth/
+│   │       │   └── LoginRequest.php
+│   │       └── ProfileUpdateRequest.php
+│   │
+│   ├── Jobs/
+│   │   ├── DailySalesReportJob.php
+│   │   └── LowStockNotificationJob.php
+│   │
+│   ├── Mail/
+│   │   └── DailySalesReportMail.php
+│   │
+│   ├── Models/
+│   │   ├── CartItem.php
+│   │   ├── Order.php
+│   │   ├── OrderItem.php
+│   │   ├── Product.php
+│   │   └── User.php
+│   │
+│   ├── Notifications/
+│   │   └── LowStockNotification.php
+│   │
+│   ├── Providers/
+│   │   └── AppServiceProvider.php
+│   │
+│   ├── Repositories/
+│   │   ├── Interfaces/
+│   │   │   ├── CartRepositoryInterface.php
+│   │   │   ├── OrderRepositoryInterface.php
+│   │   │   └── ProductRepositoryInterface.php
+│   │   └── Eloquent/
+│   │       ├── CartRepository.php
+│   │       ├── OrderRepository.php
+│   │       └── ProductRepository.php
+│   │
+│   └── Services/
+│       ├── CartService.php
+│       ├── OrderService.php
+│       └── ProductService.php
+│
+├── bootstrap/
+│
+├── config/
+│
+├── database/
+│   ├── factories/
+│   │   ├── ProductFactory.php
+│   │   └── UserFactory.php
+│   ├── migrations/
+│   ├── seeders/
+│   └── database.sqlite
+│
+├── public/
+│
+├── resources/
+│   ├── css/
+│   ├── js/
+│   │   ├── Components/
+│   │   │   ├── ApplicationLogo.jsx
+│   │   │   ├── Button.jsx
+│   │   │   ├── DangerButton.jsx
+│   │   │   ├── Dropdown.jsx
+│   │   │   ├── FlashMessage.jsx
+│   │   │   ├── InputError.jsx
+│   │   │   ├── InputLabel.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── NavLink.jsx
+│   │   │   ├── PrimaryButton.jsx
+│   │   │   ├── ResponsiveNavLink.jsx
+│   │   │   ├── SecondaryButton.jsx
+│   │   │   └── TextInput.jsx
+│   │   │
+│   │   ├── Layouts/
+│   │   │   ├── AuthenticatedLayout.jsx
+│   │   │   └── GuestLayout.jsx
+│   │   │
+│   │   ├── Pages/
+│   │   │   ├── Auth/
+│   │   │   ├── Cart/
+│   │   │   ├── Products/
+│   │   │   ├── Profile/
+│   │   │   │   ├── Partials/
+│   │   │   │   │   └── Edit.jsx
+│   │   │   │   ├── Dashboard.jsx
+│   │   │   │   └── Welcome.jsx
+│   │   │
+│   │   ├── app.jsx
+│   │   └── bootstrap.js
+│   │
+│   └── views/
+│       ├── emails/
+│       └── app.blade.php
+│
+├── routes/
+│   ├── web.php
+│   ├── auth.php
+│   └── console.php
+│
+├── storage/
+│
+├── tests/
+│   ├── Feature/
+│   │   ├── Auth/
+│   │   │   ├── AuthenticationTest.php
+│   │   │   ├── EmailVerificationTest.php
+│   │   │   ├── PasswordResetTest.php
+│   │   │   └── RegistrationTest.php
+│   │   ├── CartControllerTest.php
+│   │   ├── OrderControllerTest.php
+│   │   ├── ProductControllerTest.php
+│   │   └── ProfileTest.php
+│   │
+│   └── Unit/
+│       ├── CartServiceTest.php
+│       ├── OrderServiceTest.php
+│       ├── ProductServiceTest.php
+│       ├── RepositoriesTest.php
+│       ├── JobsTest.php
+│       └── MailAndNotificationTest.php
+│
+├── phpstan.neon
+├── pint.json
+├── composer.json
+├── Design_Doc.md
+├── package.json
+└── README.md
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚙️ Setup Instructions
 
-## Contributing
+### 1️⃣ Install dependencies
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+npm install
 
-## Code of Conduct
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2️⃣ Environment setup
 
-## Security Vulnerabilities
+Copy .env.example and configure your environment:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cp .env.example .env
+php artisan key:generate
 
-## License
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3️⃣ Run migrations & seed demo data
+
+```bash
+php artisan migrate --seed
+
+```
+
+### 4️⃣ Run local dev servers
+
+```bash
+
+npm run dev
+php artisan serve
+
+```
+
+### 5️⃣ Background workers (optional)
+
+```bash
+
+php artisan queue:work
+php artisan schedule:work
+
+```
+
+
+
+## 🧩 Developer Workflow
+
+🧰 Tooling Commands
+
+| Command            | Description                                    |
+| ------------------ | ---------------------------------------------- |
+| `composer format`  | Format PHP code with **Laravel Pint**          |
+| `composer lint`    | Run static analysis via **PHPStan (Larastan)** |
+| `php artisan test` | Run backend test suite (**PHPUnit**)           |
+| `npm run build`    | Production frontend build                      |
+
+
+
+## 🧪 Testing
+
+Backend Tests
+
+Laravel 11 includes built-in PHPUnit:
+
+```bash
+
+php artisan test
+
+```
+
+You can create additional test files under:
+
+```swift
+
+tests/Feature/
+tests/Unit/
+
+```
+
+
+## ⚡ Static Analysis
+
+Ensures type safety and code consistency:
+
+```bash
+
+composer lint
+
+```
+
+
+## 🎨 Code Style
+
+Uses Laravel Pint for consistent PSR-12 formatting.
+
+```bash
+
+composer format
+
+```
+
+Example composer.json snippet:
+
+```json
+
+"scripts": {
+  "format": "vendor/bin/pint",
+  "lint": "vendor/bin/phpstan analyse"
+}
+
+```
+
+
+## 🧠 Design Principles Summary
+
+| Principle           | Implementation                                  | Result                             |
+| ------------------- | ----------------------------------------------- | ---------------------------------- |
+| **SOLID**           | Repository + Service + Controller layers        | Extensible, testable code          |
+| **DRY**             | Reuse of logic and UI components                | Reduced duplication                |
+| **KISS**            | Built-in Laravel features, minimal dependencies | Simplicity and clarity             |
+| **WET (selective)** | Explicit interfaces for clarity                 | Slight duplication for readability |
+
+
+📖 Full details in [DESIGN_DOC.md](DESIGN_DOC.md)
+
+
+## 🧰 Development Tools
+
+| Tool                   | Role                   |
+| ---------------------- | ---------------------- |
+| **Laravel Pint**       | Auto-formatting        |
+| **PHPStan + Larastan** | Static analysis        |
+| **PHPUnit**            | Backend testing        |
+| **Inertia.js + React** | Full-stack integration |
+| **Tailwind CSS**       | Styling                |
+| **React Hot Toast**    | Instant UI feedback    |
+
+
+
+## 🕒 Jobs & Scheduling
+
+| Job                       | Trigger                        | Description                 |
+| ------------------------- | ------------------------------ | --------------------------- |
+| `LowStockNotificationJob` | When product stock < threshold | Sends admin notification    |
+| `DailySalesReportJob`     | Scheduled daily                | Generates and emails report |
+
+- Run scheduled job manually
+
+```bash
+
+php artisan schedule:run
+
+```
+
+
+## 🧠 Design Philosophy
+
+- Backend first: focus on maintainable domain logic.
+- Frontend simple but responsive: Inertia.js bridges Laravel & React seamlessly.
+- Clean code, minimal dependencies: everything implemented with core Laravel.
+- Quality enforced via tools: Pint & PHPStan guard consistency and safety.
+
+
+## 🧾 License
+Stack: Laravel 11 · PHP 8.2 · React 18 · Tailwind CSS
