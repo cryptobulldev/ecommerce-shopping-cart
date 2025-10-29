@@ -185,7 +185,11 @@ php artisan key:generate
 ### 3️⃣ Run migrations & seed demo data
 
 ```bash
-php artisan migrate --seed
+php artisan migrate --seed 
+
+# or
+
+php artisan migrate:fresh --seed
 
 ```
 
