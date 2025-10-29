@@ -13,7 +13,7 @@ class DailySalesReportMail extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     /**
-     * @param Collection<int, array{product:string,quantity:int,revenue:int|float}> $summary
+     * @param  Collection<int, array{product:string,quantity:int,revenue:int|float}>  $summary
      */
     public function __construct(public Collection $summary) {}
 

@@ -17,7 +17,7 @@ class OrderItem extends Model
     protected $fillable = ['order_id', 'product_id', 'quantity', 'price'];
 
     /**
-        * @phpstan-return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Product, \App\Models\OrderItem>
+     * @phpstan-return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Product, \App\Models\OrderItem>
      */
     public function product(): BelongsTo
     {

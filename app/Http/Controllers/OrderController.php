@@ -12,6 +12,7 @@ class OrderController extends Controller
     public function store(): RedirectResponse
     {
         $order = $this->orderService->checkout();
+
         return back()->with('success', "Order #{$order->id} placed successfully!");
     }
 }
